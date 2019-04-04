@@ -1,0 +1,10 @@
+name: testPlugin
+main: io.github.michaelpeterswa.testplugin.testPlugin
+version: 1.0
+author: nwradio
+commands:
+  peen:
+    description: This is the peen command
+    usage: /peen [player]
+    permission: peenPlugin.peen
+    permission-message: You don't have permission to peen
