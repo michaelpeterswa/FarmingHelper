@@ -23,7 +23,7 @@ public void onDisable() {
 
 @Override
 public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-    if (cmd.getName().equalsIgnoreCase("peen")) { // If the player typed /basic then do the following, note: If you only registered this executor for one command, you don't need this
+    if (cmd.getName().equalsIgnoreCase("peen")) {
         if(!(sender instanceof Player)) {
             sender.sendMessage("You must be a player to execute that command!");
             return true;
