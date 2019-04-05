@@ -1,10 +1,26 @@
 name: testPlugin
 main: io.github.michaelpeterswa.testplugin.testPlugin
-version: 1.0
+version: 1.1
+api-version: 1.13
 author: nwradio
 commands:
   peen:
     description: This is the peen command
-    usage: /peen [player]
+    usage: /peen
     permission: peenPlugin.peen
     permission-message: You don't have permission to peen
+
+permissions:
+  peenPlugin.*:
+    description: Gives access to all peen commands
+    children:
+      peenPlugin.peen: true
+      peenPlugin.peen.others: true
+  peenPlugin.peen:
+    description: Allows you to peen yourself
+    default: true
+  peenPlugin.peen.others:
+    description: Allows you to peen others
+    default: op
+    children:
+      peenPlugin.peen: true

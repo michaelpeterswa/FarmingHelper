@@ -1,6 +1,7 @@
 package io.github.michaelpeterswa.testplugin;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -29,16 +30,39 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
             return true;
         }
     }
-    //If this has happened the function will return true.
-    // If this hasn't happened the value of false will be returned.
     Player player = (Player) sender;
-    ItemStack item1 = new ItemStack(Material.WOODEN_HOE,1);
-    ItemMeta meta = item1.getItemMeta();
-    meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw peen");
-    meta.addEnchant(Enchantment.DURABILITY, 1, true);
-    item1.setItemMeta(meta);
-    player.getInventory().addItem(item1);
-
+    if(args.length == 0){
+        ItemStack item1 = new ItemStack(Material.WOODEN_HOE,1);
+        ItemMeta meta = item1.getItemMeta();
+        meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw peen");
+        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        item1.setItemMeta(meta);
+        player.getInventory().addItem(item1);
+        return true;
+    }
+    else if (args.length != 0) {
+        Player target = Bukkit.getServer().getPlayer(args[0]);
+        if(player.hasPermission("peenPlugin.peen.others")) {
+            if(target == null) {
+                player.sendMessage(ChatColor.RED + "Error: Player is offline!");
+                return true;
+            }
+            else {
+                player.sendMessage(ChatColor.DARK_PURPLE + args[0]);
+                ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
+                ItemMeta meta = item1.getItemMeta();
+                meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw peen");
+                meta.addEnchant(Enchantment.DURABILITY, 1, true);
+                item1.setItemMeta(meta);
+                target.getInventory().addItem(item1);
+                return true;
+            }
+        }
+        else if (!(player.hasPermission("peenPlugin.peen.others"))) {
+            player.sendMessage(ChatColor.RED + "Insufficient Permissions.");
+            return true;
+        }
+    }
     return true;
     }
 }
