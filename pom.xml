@@ -6,7 +6,7 @@
 
     <groupId>io.github.michaelpeterswa</groupId>
     <artifactId>peenPlugin</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2-STABLE</version>
 
     <repositories>
         <repository>
