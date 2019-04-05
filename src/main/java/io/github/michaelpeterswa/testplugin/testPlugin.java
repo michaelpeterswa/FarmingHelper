@@ -14,7 +14,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class testPlugin extends JavaPlugin {
 @Override
 public void onEnable() {
-        getLogger().info("peenPlugin has been enabled");
+    getLogger().info("\u001b[31m ---------------------------\u001b[0m");
+    getLogger().info("\u001b[31m peenPlugin has been enabled\u001b[0m");
+    getLogger().info("\u001b[31m ---------------------------\u001b[0m");
     }
 
 @Override
