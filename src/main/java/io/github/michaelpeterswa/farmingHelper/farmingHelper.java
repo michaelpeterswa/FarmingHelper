@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class farmingHelper extends JavaPlugin {
-
+//test comment for CI
 @Override
 public void onEnable() {
     getLogger().info( " ");
@@ -79,9 +79,6 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
                 Player target = Bukkit.getServer().getPlayer(args[1]);
                 if (player.hasPermission("farmingHelper.hoe.others")) {
                     if (target == null) {
-                        player.sendMessage(fh_prefix+ ChatColor.RED + "Error: Player is offline!");
-                        return true;
-                    } else {
                         player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Hoe given to " + args[1]);
                         ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
                         ItemMeta meta = item1.getItemMeta();
@@ -89,6 +86,9 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
                         meta.addEnchant(Enchantment.DURABILITY, 1, true);
                         item1.setItemMeta(meta);
                         target.getInventory().addItem(item1);
+                        return true;
+                    } else {
+                        player.sendMessage(fh_prefix+ ChatColor.RED + "Error: Player is offline!");
                         return true;
                     }
                 } else if (!(player.hasPermission("farmingHelper.hoe.others"))) {
