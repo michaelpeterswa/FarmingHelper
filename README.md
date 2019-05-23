@@ -1,4 +1,4 @@
-[![Awesome](https://awesome.re/badge-flat.svg)](https://michaelpeterswa.com) [![Known Vulnerabilities](https://snyk.io/test/github/michaelpeterswa/FarmingHelper/badge.svg?style=flat-square)](https://snyk.io/test/github/michaelpeterswa/FarmingHelper)
+[![Awesome](https://awesome.re/badge.svg)](https://michaelpeterswa.com) [![Known Vulnerabilities](https://snyk.io/test/github/michaelpeterswa/FarmingHelper/badge.svg)](https://snyk.io/test/github/michaelpeterswa/FarmingHelper) [![start with why](https://img.shields.io/badge/start%20with-why%3F-brightgreen.svg?style=flat)](http://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action) ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg) ![GitHub repo size](https://img.shields.io/github/repo-size/michaelpeterswa/FarmingHelper.svg) ![GitHub issues](https://img.shields.io/github/issues/michaelpeterswa/FarmingHelper.svg)
 
 # FarmingHelper Spigot Plugin for 1.13+
 requested by Myld on my server
