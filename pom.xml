@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.michaelpeterswa</groupId>
-    <artifactId>peenPlugin</artifactId>
-    <version>1.2-STABLE</version>
+    <artifactId>farmingHelper</artifactId>
+    <version>1.3-STABLE</version>
 
     <repositories>
         <repository>
@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.13.2-R0.1-SNAPSHOT</version><!--change this value depending on the version or use LATEST-->
+            <version>LATEST</version><!--change this value depending on the version or use LATEST-->
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
