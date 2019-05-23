@@ -1,11 +1,11 @@
 [![Awesome](https://awesome.re/badge-flat.svg)](https://michaelpeterswa.com)
 
-# Example CraftBukkit Plugin for 1.13
+# FarmingHelper Spigot Plugin for 1.13+
 requested by Myld on my server
 
-> Repository for my test plugin for CraftBukkit Minecraft servers
+> Repository for my farming plugin for Spigot/Craftbukkit Minecraft servers
 
-This plugin gives users a rainbow Unbreaking 1 Wooden Hoe when they use the plugin's command (/peen)
+This plugin gives users a rainbow Unbreaking 1 Wooden Hoe when they use the plugin's command (/fh hoe)
 
 ## Release History
 
@@ -15,6 +15,10 @@ This plugin gives users a rainbow Unbreaking 1 Wooden Hoe when they use the plug
     * functioning plugin (04.04.19)
 * 1.2-STABLE
     * cleaned up, permission tiers set, console logging improved (04.04.19)
+* 1.3-STABLE
+    * rewrote command parsing
+    * added colored prefix to show command more clearly 
+    * added invalid command handling (one and two arguments allowed now) (05.22.19)
 
 ## Meta
 
