@@ -1,4 +1,4 @@
-[![Awesome](https://awesome.re/badge-flat.svg)](https://michaelpeterswa.com) [![Known Vulnerabilities](https://snyk.io/test/github/{username}/{repo}/badge.svg)](https://snyk.io/test/github/{username}/{repo})
+[![Awesome](https://awesome.re/badge-flat.svg)](https://michaelpeterswa.com) [![Known Vulnerabilities](https://snyk.io/test/github/michaelpeterswa/FarmingHelper/badge.svg)](https://snyk.io/test/github/{username}/{repo})
 
 # FarmingHelper Spigot Plugin for 1.13+
 requested by Myld on my server
