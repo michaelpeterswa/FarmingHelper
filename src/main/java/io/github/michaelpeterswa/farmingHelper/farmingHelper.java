@@ -12,7 +12,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class farmingHelper extends JavaPlugin {
-//test comment for CI
+
 @Override
 public void onEnable() {
     getLogger().info( " ");
@@ -59,6 +59,7 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
                 sender.sendMessage(ChatColor.DARK_PURPLE + "hoe: /fh hoe");
                 sender.sendMessage(ChatColor.DARK_PURPLE + "help: /fh help");
                 sender.sendMessage(ChatColor.DARK_PURPLE + "------------------");
+                return true;
             }
             if (args[0].equals("hoe")) { //Hoe command without a second argument
                 ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
@@ -72,13 +73,14 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
             }
             else {
                 player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "Invalid command.");
+               // return true;
             }
         }
         else if (args.length == 2) { //Two argument commands (e.g. /fh hoe nwradio)
             if (args[0].equals("hoe")) {
                 Player target = Bukkit.getServer().getPlayer(args[1]);
                 if (player.hasPermission("farmingHelper.hoe.others")) {
-                    if (target == null) {
+                    if (target != null) {
                         player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Hoe given to " + args[1]);
                         ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
                         ItemMeta meta = item1.getItemMeta();
@@ -93,7 +95,6 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
                     }
                 } else if (!(player.hasPermission("farmingHelper.hoe.others"))) {
                     player.sendMessage(fh_prefix + ChatColor.RED + "Insufficient Permissions.");
-                    return true;
                 }
             }
         }
