@@ -43,45 +43,68 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
             }
         }
 
-        Player player = (Player) sender;
+        //Player player = (Player) sender;
 
         if(args.length == 0){
+            if(!(sender instanceof Player)) {
+                sender.sendMessage("farmingHelper's command /fh cannot be used from the command line");
+            }
+            else{
                 sender.sendMessage(ChatColor.DARK_PURPLE + "------------------");
                 sender.sendMessage(ChatColor.DARK_PURPLE + "farmingHelper v1.2");
                 sender.sendMessage(ChatColor.DARK_PURPLE + "usage: /fh");
                 sender.sendMessage(ChatColor.DARK_PURPLE + "help: /fh help");
                 sender.sendMessage(ChatColor.DARK_PURPLE + "-------------------");
+            }
         }
         else if (args.length == 1) { //One argument commands (e.g. /fh help)
             if (args[0].equals("help")) { //Help command
-                sender.sendMessage(ChatColor.DARK_PURPLE + "------------------");
-                sender.sendMessage(ChatColor.DARK_PURPLE + "farmingHelper HELP");
-                sender.sendMessage(ChatColor.DARK_PURPLE + "hoe: /fh hoe");
-                sender.sendMessage(ChatColor.DARK_PURPLE + "help: /fh help");
-                sender.sendMessage(ChatColor.DARK_PURPLE + "------------------");
-                return true;
+                if(!(sender instanceof Player)) {
+                    sender.sendMessage("farmingHelper's command /fh help cannot be used from the command line");
+                }
+                else {
+                    sender.sendMessage(ChatColor.DARK_PURPLE + "------------------");
+                    sender.sendMessage(ChatColor.DARK_PURPLE + "farmingHelper HELP");
+                    sender.sendMessage(ChatColor.DARK_PURPLE + "hoe: /fh hoe");
+                    sender.sendMessage(ChatColor.DARK_PURPLE + "help: /fh help");
+                    sender.sendMessage(ChatColor.DARK_PURPLE + "------------------");
+                    return true;
+                }
             }
             if (args[0].equals("hoe")) { //Hoe command without a second argument
-                ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
-                ItemMeta meta = item1.getItemMeta();
-                meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw hoe");
-                meta.addEnchant(Enchantment.DURABILITY, 1, true);
-                item1.setItemMeta(meta);
-                player.sendMessage( fh_prefix + ChatColor.DARK_PURPLE + "1 Rainbow Hoe given to " + player.getName());
-                player.getInventory().addItem(item1);
-                return true;
+                if(!(sender instanceof Player)) {
+                    sender.sendMessage("farmingHelper's command /fh hoe cannot be used from the command line");
+                }
+                else {
+                    ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
+                    ItemMeta meta = item1.getItemMeta();
+                    meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw hoe");
+                    meta.addEnchant(Enchantment.DURABILITY, 1, true);
+                    item1.setItemMeta(meta);
+                    Player player = (Player) sender;
+                    player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Rainbow Hoe given to " + player.getName());
+                    player.getInventory().addItem(item1);
+                    return true;
+                }
             }
             else {
-                player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "Invalid command.");
-               // return true;
+                if(!(sender instanceof Player)) {
+                    sender.sendMessage("[fh] invalid command");
+                }
+                else {
+                    Player player = (Player) sender;
+                    player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "Invalid command.");
+                }
+                // return true;
             }
         }
         else if (args.length == 2) { //Two argument commands (e.g. /fh hoe nwradio)
             if (args[0].equals("hoe")) {
                 Player target = Bukkit.getServer().getPlayer(args[1]);
-                if (player.hasPermission("farmingHelper.hoe.others")) {
+
+                if (sender.hasPermission("farmingHelper.hoe.others")) {
                     if (target != null) {
-                        player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Hoe given to " + args[1]);
+                        sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Hoe given to " + args[1]);
                         ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
                         ItemMeta meta = item1.getItemMeta();
                         meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw hoe");
@@ -90,11 +113,11 @@ public boolean onCommand(CommandSender sender, Command cmd, String label, String
                         target.getInventory().addItem(item1);
                         return true;
                     } else {
-                        player.sendMessage(fh_prefix+ ChatColor.RED + "Error: Player is offline!");
+                        sender.sendMessage(fh_prefix + ChatColor.RED + "Error: Player is offline!");
                         return true;
                     }
-                } else if (!(player.hasPermission("farmingHelper.hoe.others"))) {
-                    player.sendMessage(fh_prefix + ChatColor.RED + "Insufficient Permissions.");
+                } else if (!(sender.hasPermission("farmingHelper.hoe.others"))) {
+                    sender.sendMessage(fh_prefix + ChatColor.RED + "Insufficient Permissions.");
                 }
             }
         }
