@@ -1,5 +1,6 @@
 package io.github.michaelpeterswa.farmingHelper;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class farmingHelper extends JavaPlugin {
@@ -18,6 +19,9 @@ public final class farmingHelper extends JavaPlugin {
         getLogger().info(" ");
 
         getCommand("fh").setExecutor(new GiveToolCommand());
+        getCommand("fhc").setExecutor(new ConfigCommand());
+        ConfigHandler ch = new ConfigHandler();
+        ch.test();
     }
 
     @Override
