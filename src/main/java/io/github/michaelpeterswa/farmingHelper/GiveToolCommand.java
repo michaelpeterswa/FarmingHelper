@@ -1,6 +1,3 @@
-//Michael Peters
-//farmingHelper-1.5-DEV
-
 package io.github.michaelpeterswa.farmingHelper;
 
 import org.bukkit.Bukkit;
