@@ -8,9 +8,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ConfigHandler {
 
-    private JavaPlugin plugin; // Your plugin instance
+    JavaPlugin plugin = farmingHelper.getInst();
 
-    void test() {
+    // Your plugin instance
+
+    void saveDefaults() {
         plugin.saveDefaultConfig();
     }
     public FileConfiguration readFromConfig () {

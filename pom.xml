@@ -6,7 +6,7 @@
 
     <groupId>io.github.michaelpeterswa</groupId>
     <artifactId>farmingHelper</artifactId>
-    <version>1.5-DEV</version>
+    <version>1.5-STABLE</version>
 
     <repositories>
         <repository>
