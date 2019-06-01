@@ -20,6 +20,8 @@ This plugin gives users a rainbow Unbreaking 1 Wooden Hoe when they use the plug
     * rewrote command parsing
     * added colored prefix to show command more clearly 
     * added invalid command handling (one and two arguments allowed now) (05.22.19)
+* 1.5-STABLE
+    * added config file support
 
 ## Meta
 
