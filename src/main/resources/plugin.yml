@@ -1,6 +1,6 @@
 name: farmingHelper
 main: io.github.michaelpeterswa.farmingHelper.farmingHelper
-version: 1.3-STABLE
+version: 1.5-STABLE
 api-version: 1.13
 author: nwradio
 commands:
@@ -9,6 +9,11 @@ commands:
     usage: /fh
     permission: farmingHelper.fh
     permission-message: You don't have permission to use FarmingHelper
+  fhc:
+    description: config command
+    usage: /fhc
+    permission: farmingHelper.fhc
+    permission-message: dude idk
 
 permissions:
   farmingHelper.*:
@@ -24,3 +29,7 @@ permissions:
     default: op
     children:
       farmingHelper.fh.hoe: true
+  farmingHelper.fhc.*:
+    description: config file admin stuff
+    default: op
+

@@ -1,3 +1,6 @@
+//Michael Peters
+//farmingHelper-1.5-DEV
+
 package io.github.michaelpeterswa.farmingHelper;
 
 import org.bukkit.ChatColor;
@@ -10,7 +13,10 @@ public class ConfigCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        String fh_prefix = String.format("%s[%sfh%s] ", ChatColor.GREEN, ChatColor.DARK_GREEN, ChatColor.GREEN);
+        ConfigHandler ch = new ConfigHandler();
+        ch.saveDefaults();
+
+        String fh_prefix = String.format("%s[%sfhc%s] ", ChatColor.GREEN, ChatColor.DARK_GREEN, ChatColor.GREEN);
         //prefix to append to each message to the player
 
         if (args.length == 0) {
@@ -26,17 +32,20 @@ public class ConfigCommand implements CommandExecutor {
         if (args.length == 1){
             if(args[0].equals("reload")){
                 sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "reloading...");
+                return true;
             }
             if(args[0].equals("list")){
                 sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "listing...");
+                sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + ch.returnFirstLine(ch.readFromConfig()));
+                return true;
             }
             else{
                 sender.sendMessage(fh_prefix + ChatColor.RED + "unsupported command");
             }
         }
 
-        else{
-            sender.sendMessage(fh_prefix + ChatColor.RED + "unsupported command");
+        if (args.length > 1){
+            sender.sendMessage(fh_prefix + ChatColor.RED + "unsupported command (too many args)");
         }
     return true;
     }

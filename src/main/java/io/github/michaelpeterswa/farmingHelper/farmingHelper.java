@@ -1,14 +1,13 @@
+//Michael Peters
+//farmingHelper-1.5-DEV
+
 package io.github.michaelpeterswa.farmingHelper;
 
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class farmingHelper extends JavaPlugin {
 
-//        sender.sendMessage(ChatColor.LIGHT_PURPLE + "====[ Multiverse Anchor List ]====");
-//        Player p = null;
-//        if (sender instanceof Player) {
-//        p = (Player) sender;
+    private static farmingHelper instance;
 
     @Override
     public void onEnable() {
@@ -20,12 +19,15 @@ public final class farmingHelper extends JavaPlugin {
 
         getCommand("fh").setExecutor(new GiveToolCommand());
         getCommand("fhc").setExecutor(new ConfigCommand());
-        ConfigHandler ch = new ConfigHandler();
-        ch.test();
+        instance = this;
     }
 
     @Override
     public void onDisable() {
         getLogger().info("farmingHelper has been disabled");
+    }
+
+    public static farmingHelper getInst() {
+        return instance;
     }
 }

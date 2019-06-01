@@ -6,7 +6,7 @@
 
     <groupId>io.github.michaelpeterswa</groupId>
     <artifactId>farmingHelper</artifactId>
-    <version>1.5-DEV</version>
+    <version>1.5-STABLE</version>
 
     <repositories>
         <repository>
@@ -22,6 +22,12 @@
             <version>LATEST</version><!--change this value depending on the version or use LATEST-->
             <type>jar</type>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
