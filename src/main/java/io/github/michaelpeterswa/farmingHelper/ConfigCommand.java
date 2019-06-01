@@ -1,6 +1,3 @@
-//Michael Peters
-//farmingHelper-1.5-DEV
-
 package io.github.michaelpeterswa.farmingHelper;
 
 import org.bukkit.ChatColor;
@@ -12,9 +9,6 @@ public class ConfigCommand implements CommandExecutor {
 
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-
-        ConfigHandler ch = new ConfigHandler();
-        ch.test();
 
         String fh_prefix = String.format("%s[%sfh%s] ", ChatColor.GREEN, ChatColor.DARK_GREEN, ChatColor.GREEN);
         //prefix to append to each message to the player
@@ -35,7 +29,6 @@ public class ConfigCommand implements CommandExecutor {
             }
             if(args[0].equals("list")){
                 sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "listing...");
-                sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + ch.returnFirstLine(ch.readFromConfig()));
             }
             else{
                 sender.sendMessage(fh_prefix + ChatColor.RED + "unsupported command");
