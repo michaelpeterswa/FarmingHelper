@@ -24,3 +24,7 @@ permissions:
     default: op
     children:
       farmingHelper.fh.hoe: true
+  farmingHelper.fhc.*:
+    description: config file admin stuff
+    default: op
+
