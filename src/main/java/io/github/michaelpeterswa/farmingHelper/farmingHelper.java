@@ -1,5 +1,5 @@
 //Michael Peters
-//farmingHelper-1.5-DEV
+//farmingHelper-1.5-STABLE
 
 package io.github.michaelpeterswa.farmingHelper;
 
