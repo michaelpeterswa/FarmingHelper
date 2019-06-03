@@ -16,6 +16,37 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class GiveToolCommand implements CommandExecutor {
 
+    private ItemStack createHoe() {
+        ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
+        ItemMeta meta = item1.getItemMeta();
+        meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw hoe");
+        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        item1.setItemMeta(meta);
+        return item1;
+    }
+
+    private void giveHoe(Player player) {
+        String fh_prefix = String.format("%s[%sfh%s] ", ChatColor.GREEN, ChatColor.DARK_GREEN, ChatColor.GREEN);
+
+        player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Rainbow Hoe given to " + player.getName());
+        player.getInventory().addItem(createHoe());
+    }
+
+    private ItemStack createShovel() {
+        ItemStack item1 = new ItemStack(Material.WOODEN_SHOVEL, 1);
+        ItemMeta meta = item1.getItemMeta();
+        meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw shovel");
+        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        item1.setItemMeta(meta);
+        return item1;
+    }
+
+    private void giveShovel(Player player) {
+        String fh_prefix = String.format("%s[%sfh%s] ", ChatColor.GREEN, ChatColor.DARK_GREEN, ChatColor.GREEN);
+
+        player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Rainbow Shovel given to " + player.getName());
+        player.getInventory().addItem(createShovel());
+    }
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
@@ -38,11 +69,7 @@ public class GiveToolCommand implements CommandExecutor {
                 if (!(sender instanceof Player)) {
                     sender.sendMessage("farmingHelper's command /fh cannot be used from the command line");
                 } else {
-                    sender.sendMessage(ChatColor.DARK_PURPLE + "------------------");
-                    sender.sendMessage(ChatColor.DARK_PURPLE + "farmingHelper v1.2");
-                    sender.sendMessage(ChatColor.DARK_PURPLE + "usage: /fh");
-                    sender.sendMessage(ChatColor.DARK_PURPLE + "help: /fh help");
-                    sender.sendMessage(ChatColor.DARK_PURPLE + "-------------------");
+                    sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "please use /fh help");
                 }
             } else if (args.length == 1) { //One argument commands (e.g. /fh help)
                 if (args[0].equals("help")) { //Help command
@@ -61,14 +88,17 @@ public class GiveToolCommand implements CommandExecutor {
                     if (!(sender instanceof Player)) {
                         sender.sendMessage("farmingHelper's command /fh hoe cannot be used from the command line");
                     } else {
-                        ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
-                        ItemMeta meta = item1.getItemMeta();
-                        meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw hoe");
-                        meta.addEnchant(Enchantment.DURABILITY, 1, true);
-                        item1.setItemMeta(meta);
                         Player player = (Player) sender;
-                        player.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Rainbow Hoe given to " + player.getName());
-                        player.getInventory().addItem(item1);
+                        giveHoe(player);
+                        return true;
+                    }
+                }
+                if (args[0].equals("shovel")) { //Hoe command without a second argument
+                    if (!(sender instanceof Player)) {
+                        sender.sendMessage("farmingHelper's command /fh shovel cannot be used from the command line");
+                    } else {
+                        Player player = (Player) sender;
+                        giveShovel(player);
                         return true;
                     }
                 } else {
@@ -86,13 +116,8 @@ public class GiveToolCommand implements CommandExecutor {
 
                     if (sender.hasPermission("farmingHelper.hoe.others")) {
                         if (target != null) {
-                            sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Hoe given to " + args[1]);
-                            ItemStack item1 = new ItemStack(Material.WOODEN_HOE, 1);
-                            ItemMeta meta = item1.getItemMeta();
-                            meta.setDisplayName("§c§lr§6§la§e§li§a§ln§b§lb§d§lo§c§lw hoe");
-                            meta.addEnchant(Enchantment.DURABILITY, 1, true);
-                            item1.setItemMeta(meta);
-                            target.getInventory().addItem(item1);
+                            target.getInventory().addItem(createHoe());
+                            target.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "1 Hoe given to you by " + sender.getName());
                             return true;
                         } else {
                             sender.sendMessage(fh_prefix + ChatColor.RED + "Error: Player is offline!");

@@ -36,7 +36,8 @@ public class ConfigCommand implements CommandExecutor {
             }
             if(args[0].equals("list")){
                 sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + "listing...");
-                sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + ch.returnFirstLine(ch.readFromConfig()));
+                sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + ch.returnAdminName(ch.readFromConfig()));
+                sender.sendMessage(fh_prefix + ChatColor.DARK_PURPLE + ch.returnNumberOfHoes(ch.readFromConfig()));
                 return true;
             }
             else{
