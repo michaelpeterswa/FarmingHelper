@@ -19,8 +19,11 @@ public class ConfigHandler {
         return plugin.getConfig(); //Accessing the config file
     }
 
-    public String returnFirstLine(FileConfiguration a) {
+    public String returnAdminName(FileConfiguration a) {
         return a.getString("adminName");
     }
 
+    public int returnNumberOfHoes(FileConfiguration a) {
+        return a.getInt("numberOfHoes");
+    }
 }

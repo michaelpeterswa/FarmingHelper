@@ -1,2 +1,3 @@
-# This is an YML comment
+# FarmingHelper Configuration
 adminName: "nwradio"
+numberOfHoes: 5
