@@ -4,7 +4,7 @@
 
 requested by Myld on my server
 
-> Repository for my farming plugin for Spigot/Craftbukkit Minecraft servers
+> Repository for my farming plugin for Spigot/Craftbukkit Minecraft servers!
 
 This plugin gives users a rainbow Unbreaking 1 Wooden Hoe when they use the plugin's command (/fh hoe)
 
